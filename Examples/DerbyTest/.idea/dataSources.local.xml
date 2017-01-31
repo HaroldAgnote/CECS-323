@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Derby - test;create=true@localhost" uuid="f0de7c64-e8d3-4eef-b93c-ea5ff1c35130">
+      <secret-storage>master_key</secret-storage>
+      <user-name>admin</user-name>
+      <introspection-scope>:ADMIN,APP</introspection-scope>
+      <resolve-scope>:ADMIN,APP</resolve-scope>
+    </data-source>
+  </component>
+</project>
