@@ -1,0 +1,60 @@
+CREATE TABLE customers (
+first_name VARCHAR(20) NOT NULL,
+last_name VARCHAR(20) NOT NULL,
+phone VARCHAR(20) NOT NULL,
+street VARCHAR(50),
+zipcode VARCHAR(5));
+
+
+insert into customers (first_name, last_name, phone, street, zipcode)
+values ('Tom', 'Jewett', '562-555-1122', '123 Mockingbird Lane', '90210');
+
+
+insert into customers (first_name, last_name, phone, street, zipcode)
+values ('Tom', 'Jewett', '562-555-1122', '123 Mockingbird Lane', '90210');
+
+
+alter table customers
+add constraint customers_pk primary key (first_name, last_name, phone);
+
+
+insert into customers (first_name, last_name, phone, street, zipcode)
+values ('Tom', 'Jewett', '562-555-1122', '123 Mockingbird Lane', '90210');
+
+
+insert into customers (first_name, last_name, phone, street, zipcode)
+values ('Tom', 'Jewett', '562-555-1122', '123 Mockingbird Lane', '90210');
+
+
+alter table customers add constraint customer_uk01
+unique (first_name,last_name,phone,street,zipcode);
+
+
+insert into customers (first_name, last_name, phone, street, zipcode)
+values ('Tom', 'Jewett', '562-555-1122', '123 Mockingbird Lane', '90210');
+
+
+alter table customers add constraint customer_uk02
+unique (first_name,last_name,phone,street);
+
+
+alter table customers add constraint customer_uk03
+unique (first_name,last_name,phone,zipcode);
+
+
+alter table customers add constraint customer_uk04
+unique (first_name,last_name,street,zipcode);
+
+
+insert into customers (first_name, last_name, phone, street, zipcode)
+values ('Tom', 'Jewett', '714-888-1212', '123 Mockingbird Lane', '90713');
+
+
+insert into customers (first_name, last_name, phone, street, zipcode)
+values ('Tom', 'Jewett', '714-888-7000', '123 Mockingbird Lane', '90210');
+
+alter table customers add constraint customer_uk05
+unique (first_name,last_name,street);
+
+alter table customers add constraint customer_uk06
+unique (first_name,last_name);
