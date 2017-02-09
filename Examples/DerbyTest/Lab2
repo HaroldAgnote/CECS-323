@@ -1,0 +1,62 @@
+CREATE TABLE customers (
+  cfirstname VARCHAR(20) NOT NULL,
+  clastname VARCHAR(20) NOT NULL,
+  cphone VARCHAR(20) NOT NULL,
+  cstreet VARCHAR(50),
+  czipcode VARCHAR(5),
+  constraint customers_pk
+  PRIMARY KEY (cfirstname, clastname, cphone));
+
+INSERT INTO customers (cfirstname, clastname, cphone, cstreet,
+                       czipcode)
+VALUES ('Tom', 'Jewett', '714-555-1212', '10200 Slater',
+        '92708');
+CREATE TABLE orders (
+  cfirstname VARCHAR(20) NOT NULL,
+  clastname VARCHAR(20) NOT NULL,
+  cphone VARCHAR(20) NOT NULL,
+  orderdate DATE NOT NULL,
+  soldby VARCHAR(20),
+  CONSTRAINT orders_pk
+  PRIMARY KEY (cfirstname, clastname, cphone, orderdate),
+  CONSTRAINT orders_customers_fk
+  FOREIGN KEY (cfirstname, clastname, cphone)
+  REFERENCES customers (cfirstname, clastname, cphone));
+INSERT INTO orders (cfirstname, clastname, cphone, orderdate, soldby)
+VALUES ('Tom', 'Jewett', '714-555-1212', '2005-09-11',
+        'Patrick');
+
+INSERT INTO CUSTOMERS (CFIRSTNAME, CLASTNAME, CPHONE, CSTREET, CZIPCODE)
+    VALUES ('Harold', 'Agnote', '123-456-7890', '12345 Avenue St.', '98765');
+
+INSERT INTO ORDERS (CFIRSTNAME, CLASTNAME, CPHONE, ORDERDATE, SOLDBY)
+    VALUES ('Harold', 'Agnote', '123-456-7890', '2/8/2017', 'Amazon');
+
+INSERT INTO CUSTOMERS (CFIRSTNAME, CLASTNAME, CPHONE, CSTREET, CZIPCODE)
+    VALUES ('David', 'Brown', '562-985-0000', '1250 Bellflower Blvd', '90609');
+
+INSERT INTO CUSTOMERS (CFIRSTNAME, CLASTNAME, CPHONE, CSTREET, CZIPCODE)
+VALUES ('John', 'McCain', '562-985-4321', '1250 Hollywood Blvd', '90650');
+
+INSERT INTO CUSTOMERS (CFIRSTNAME, CLASTNAME, CPHONE, CSTREET, CZIPCODE)
+VALUES ('Justin', 'Ortiz', '626-665-1234', '6555 Ivy Blvd', '91659');
+
+INSERT INTO CUSTOMERS (CFIRSTNAME, CLASTNAME, CPHONE, CSTREET, CZIPCODE)
+    VALUES ('Jennifer', 'Hirunthan','562-213-2432', '12312 Ham Street', '94040' );
+
+INSERT INTO ORDERS (CFIRSTNAME, CLASTNAME, CPHONE, ORDERDATE, SOLDBY)
+    VALUES ('Jennifer', 'Hirunthan', '562-213-2432', '1/23/2017', 'Amazon');
+
+INSERT INTO ORDERS (CFIRSTNAME, CLASTNAME, CPHONE, ORDERDATE, SOLDBY)
+  VALUES ('Jennifer', 'Hirunthan', '562-213-2432', '1/24/2017', 'Ebay');
+
+INSERT INTO ORDERS (CFIRSTNAME, CLASTNAME, CPHONE, ORDERDATE, SOLDBY)
+  VALUES ('Justin', 'Ortiz', '626-665-1234', '8/29/2016', 'Amazon');
+
+INSERT INTO ORDERS (CFIRSTNAME, CLASTNAME, CPHONE, ORDERDATE, SOLDBY)
+VALUES ('Justin', 'Ortiz', '626-665-1234', '8/30/2016', 'Etsy');
+
+SELECT * FROM customers INNER JOIN orders ON
+                                            customers.cfirstname = orders.cfirstname AND
+                                            customers.clastname = orders.clastname AND
+                                            customers.cphone = orders.cphone;
