@@ -1,0 +1,9 @@
+CREATE TABLE states (
+    stateName VARCHAR(20) NOT NULL,
+    stateCode VARCHAR(20) NOT NULL,
+    dateJoinedUS DATE,
+    governor VARCHAR(20),
+
+    CONSTRAINT
+
+);
