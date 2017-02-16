@@ -1,9 +1,79 @@
 CREATE TABLE states (
-    stateName VARCHAR(20) NOT NULL,
-    stateCode VARCHAR(20) NOT NULL,
-    dateJoinedUS DATE,
-    governor VARCHAR(20),
+  stateName    VARCHAR(20) NOT NULL,
+  stateCode    VARCHAR(20) NOT NULL,
+  dateJoinedUS DATE,
+  governor     VARCHAR(20),
 
-    CONSTRAINT
-
+  CONSTRAINT states_pk
+  PRIMARY KEY (stateName),
+  CONSTRAINT states_ck
+  UNIQUE (stateCode)
 );
+
+CREATE TABLE city (
+  cityName       VARCHAR(20) NOT NULL,
+  stateCode      VARCHAR(20) NOT NULL,
+  population     INTEGER,
+  lastCensusDate DATE,
+  mayor          VARCHAR(20),
+
+  CONSTRAINT city_pk
+  PRIMARY KEY (cityName, stateCode),
+
+  CONSTRAINT city_states_fk
+  FOREIGN KEY (stateCode)
+  REFERENCES states (stateCode)
+);
+
+INSERT INTO states (stateName, stateCode, dateJoinedUS, governor)
+VALUES ('California', 'CA', 'September 9, 1850', 'Jerry Brown');
+
+INSERT INTO city (cityName, stateCode, population, lastCensusDate, mayor)
+VALUES ('Long Beach', 'CA', 100000, '12/25/2016', 'Michael Flannigan');
+
+INSERT INTO states (stateName, stateCode)
+VALUES ('Florida', 'FL');
+
+INSERT INTO city (cityName, stateCode)
+VALUES ('Long Beach', 'FL');
+
+INSERT INTO states (stateName, stateCode)
+VALUES
+  ('Arizona', 'AZ'),
+  ('Nevada', 'NV'),
+  ('New Mexico', 'NM'),
+  ('New York', 'NY'),
+  ('Hawaii', 'HW');
+
+INSERT INTO city (cityName, stateCode)
+VALUES
+  ('Las Vegas', 'NV'),
+  ('Honolulu', 'HW'),
+  ('New York', 'NY'),
+  ('Grand Canyon', 'AZ'),
+  ('Phoenix', 'AZ');
+
+/*[23503][30000] DELETE on table 'STATES' caused a violation of foreign key
+constraint 'CITY_STATES_FK' for key (AZ). The statement has been rolled back.*/
+DELETE FROM states
+WHERE stateCode = 'AZ';
+
+DELETE FROM states
+where stateCode = 'NM';
+
+SELECT * FROM states
+NATURAL JOIN city;
+/*
+[23503][30000] DELETE on table 'STATES' caused a violation of foreign key constraint
+'CITY_STATES_FK' for key (AZ). The statement has been rolled back.
+ */
+DELETE FROM states
+WHERE stateName = 'Arizona';
+
+/*
+[X0Y25][30000] Operation 'DROP CONSTRAINT' cannot be performed on object 'STATES_CK'
+because CONSTRAINT 'CITY_STATES_FK' is dependent on that object.
+ */
+DROP TABLE states;
+
+DROP TABLE city;

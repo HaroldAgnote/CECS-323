@@ -7,5 +7,11 @@
       <introspection-scope>:ADMIN,APP</introspection-scope>
       <resolve-scope>:ADMIN,APP</resolve-scope>
     </data-source>
+    <data-source name="Lab3A - lab3a@localhost" uuid="d9234f4e-beaa-4685-b2c9-750736dacc2d">
+      <secret-storage>master_key</secret-storage>
+      <user-name>admin</user-name>
+      <introspection-scope>:ADMIN,APP</introspection-scope>
+      <resolve-scope>:ADMIN,APP</resolve-scope>
+    </data-source>
   </component>
 </project>
