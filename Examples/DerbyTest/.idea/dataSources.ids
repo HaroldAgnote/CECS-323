@@ -2394,7 +2394,10 @@ CREATIONTIMESTAMP</columns>
     </database-model>
   </data-source>
   <data-source name="Lab3A - lab3a@localhost" uuid="d9234f4e-beaa-4685-b2c9-750736dacc2d">
-    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+    <database-info product="Apache Derby" version="10.13.1.1 - (1765088)" jdbc-version="4.2" driver-name="Apache Derby Network Client JDBC Driver" driver-version="10.11.1.1 - (1616546)">
+      <identifier-quote-string>&quot;</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact"/>
     <database-model serializer="dbm" rdbms="DERBY" format-version="2.6">
       <schema id="1" name="ADMIN">
         <visible>1</visible>
@@ -4295,7 +4298,7 @@ CREATIONTIMESTAMP</columns>
       </argument>
       <argument id="486" parent="90">
         <direction>RETURN</direction>
-        <data-type>VARCHAR () FOR BIT DATA(32672)|-3</data-type>
+        <data-type>VARCHAR() FOR BIT DATA(32672)|-3</data-type>
       </argument>
       <argument id="487" parent="90" name="LOCATOR">
         <direction>IN</direction>
@@ -4327,7 +4330,7 @@ CREATIONTIMESTAMP</columns>
       </argument>
       <argument id="494" parent="92" name="SEARCHBYTES">
         <direction>IN</direction>
-        <data-type>VARCHAR () FOR BIT DATA(32672)|-3</data-type>
+        <data-type>VARCHAR() FOR BIT DATA(32672)|-3</data-type>
       </argument>
       <argument id="495" parent="92" name="POS">
         <direction>IN</direction>
@@ -4367,7 +4370,7 @@ CREATIONTIMESTAMP</columns>
       </argument>
       <argument id="504" parent="95" name="REPLACEBYTES">
         <direction>IN</direction>
-        <data-type>VARCHAR () FOR BIT DATA(32672)|-3</data-type>
+        <data-type>VARCHAR() FOR BIT DATA(32672)|-3</data-type>
       </argument>
       <argument id="505" parent="96" name="LOCATOR">
         <direction>IN</direction>

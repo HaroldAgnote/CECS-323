@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Lab3 - Derby (Remote) - Lab3@localhost" uuid="d8218cc8-e975-4b9d-8bd6-c98e8eba6882">
+      <secret-storage>master_key</secret-storage>
+      <user-name>admin</user-name>
+      <introspection-scope>:ADMIN,APP</introspection-scope>
+      <resolve-scope>:ADMIN,APP</resolve-scope>
+    </data-source>
+  </component>
+</project>
