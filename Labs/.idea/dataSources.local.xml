@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="SQL_Practice_1@localhost" uuid="11cdce4c-bfd5-4177-bf6d-34d60522b9f2">
+      <secret-storage>master_key</secret-storage>
+      <user-name>admin</user-name>
+      <introspection-scope>:ADMIN,APP</introspection-scope>
+      <resolve-scope>:ADMIN,APP</resolve-scope>
+    </data-source>
+  </component>
+</project>
