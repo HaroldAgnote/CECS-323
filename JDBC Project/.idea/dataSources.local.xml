@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="TestDatabase - Test@localhost" uuid="6b2f8d2b-2b0d-4ba1-93aa-8dec6cb62a0b">
+      <secret-storage>master_key</secret-storage>
+      <user-name>admin</user-name>
+      <introspection-scope>:ADMIN,APP</introspection-scope>
+      <resolve-scope>:ADMIN,APP</resolve-scope>
+    </data-source>
+    <data-source name="Test2" uuid="ed717745-6f56-401f-a307-1bfd0161988d">
+      <secret-storage>master_key</secret-storage>
+      <user-name>admin</user-name>
+      <introspection-scope>:ADMIN,APP</introspection-scope>
+      <resolve-scope>:ADMIN,APP</resolve-scope>
+    </data-source>
+  </component>
+</project>
