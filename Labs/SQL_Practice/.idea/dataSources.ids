@@ -2086,7 +2086,7 @@ CREATIONTIMESTAMP</columns>
       </argument>
       <argument id="535" parent="94">
         <direction>RETURN</direction>
-        <data-type>VARCHAR () FOR BIT DATA(32672)|-3</data-type>
+        <data-type>VARCHAR() FOR BIT DATA(32672)|-3</data-type>
       </argument>
       <argument id="536" parent="94" name="LOCATOR">
         <direction>IN</direction>
@@ -2118,7 +2118,7 @@ CREATIONTIMESTAMP</columns>
       </argument>
       <argument id="543" parent="96" name="SEARCHBYTES">
         <direction>IN</direction>
-        <data-type>VARCHAR () FOR BIT DATA(32672)|-3</data-type>
+        <data-type>VARCHAR() FOR BIT DATA(32672)|-3</data-type>
       </argument>
       <argument id="544" parent="96" name="POS">
         <direction>IN</direction>
@@ -2158,7 +2158,7 @@ CREATIONTIMESTAMP</columns>
       </argument>
       <argument id="553" parent="99" name="REPLACEBYTES">
         <direction>IN</direction>
-        <data-type>VARCHAR () FOR BIT DATA(32672)|-3</data-type>
+        <data-type>VARCHAR() FOR BIT DATA(32672)|-3</data-type>
       </argument>
       <argument id="554" parent="100" name="LOCATOR">
         <direction>IN</direction>
