@@ -144,23 +144,70 @@ SELECT CUSTOMERNAME FROM CUSTOMERS
 
 -- Aggregate Functions
 -- 25. Find the total of all payments made by each customer (98)
--- 26. Find the largest payment made by a customer (1)
--- 27. Find the average payment made by a customer (1)
--- 28. What is the total number of products per product line (7)
--- 29. What is the number of orders per status (6)
--- 30. List all offices and the number of employees working in each office (7)
+SELECT CUSTOMERNUMBER, SUM(AMOUNT) AS TOTALAMOUNT
+FROM CUSTOMERS
+NATURAL JOIN PAYMENTS
+GROUP BY CUSTOMERNUMBER;
 
+-- 26. Find the largest payment made by a customer (1)
+SELECT MAX(MAXAMOUNT) FROM (SELECT CUSTOMERNUMBER, MAX(AMOUNT) AS MAXAMOUNT
+FROM PAYMENTS
+NATURAL JOIN CUSTOMERS
+GROUP BY CUSTOMERNUMBER) AS MAXIMUM;
+
+SELECT MAX(AMOUNT) AS MAXIMUM FROM PAYMENTS;
+
+-- 27. Find the average payment made by a customer (1)
+
+SELECT AVG(AMOUNT) FROM PAYMENTS;
+
+-- 28. What is the total number of products per product line (7)
+
+SELECT PRODUCTLINE, COUNT(PRODUCTNAME)
+FROM PRODUCTS
+NATURAL JOIN PRODUCTLINES
+GROUP BY PRODUCTLINE;
+
+
+-- 29. What is the number of orders per status (6)
+SELECT STATUS, COUNT(ORDERNUMBER)
+FROM ORDERS
+GROUP BY STATUS;
+
+-- 30. List all offices and the number of employees working in each office (7)
+SELECT OFFICECODE, COUNT(EMPLOYEENUMBER)
+FROM OFFICES
+NATURAL JOIN EMPLOYEES
+GROUP BY OFFICECODE;
 
 -- Having
 -- 31. List the total number of products per product line where number of products > 3 (6)
+
+SELECT PRODUCTLINE, COUNT(PRODUCTNAME)
+FROM PRODUCTLINES
+NATURAL JOIN PRODUCTS
+GROUP BY PRODUCTLINE
+HAVING COUNT(PRODUCTNAME) > 3;
+
+
 -- 32. List the product lines and vendors for product lines which are supported by < 5 vendors
 -- (3)
 
+SELECT PRODUCTLINE, PRODUCTVENDOR FROM PRODUCTS
+WHERE PRODUCTLINE IN
+(SELECT PRODUCTLINE
+FROM PRODUCTLINES
+NATURAL JOIN PRODUCTS
+GROUP BY PRODUCTLINE
+HAVING COUNT(PRODUCTVENDOR) < 5);
 
 -- Computations
 -- 33. What product that makes us the most money (qty*price) (1)
--- 34. What is the profit per product (MSRP-buyprice) (110)
 
+
+-- 34. What is the profit per product (MSRP-buyprice) (110)
+SELECT PRODUCTNAME, MSRP-BUYPRICE AS PROFIT
+FROM PRODUCTS;
 
 -- Set Operations
 -- 35. List all customers who didn't order in 2015 (78)

@@ -1,20 +1,7 @@
-Mon Mar 06 18:17:21 PST 2017 : Apache Derby Network Server - 10.13.1.1 - (1765088) started and ready to accept connections on port 1527
+Wed Mar 08 18:00:56 PST 2017 : Apache Derby Network Server - 10.13.1.1 - (1765088) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Mon Mar 06 18:17:24 PST 2017:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-015a-a68e-80f9-fffff4c87ffb 
-on database directory D:\Documents\git\CECS-323\Databases\db-derby-10.13.1.1-bin\bin\Term_Project with class loader sun.misc.Launcher$AppClassLoader@610455d6 
-Loaded from file:/D:/Documents/git/CECS-323/Databases/db-derby-10.13.1.1-bin/lib/derby.jar
-java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_101-b13
-user.dir=D:\Documents\git\CECS-323\Databases\db-derby-10.13.1.1-bin\bin
-os.name=Windows 10
-os.arch=amd64
-os.version=10.0
-derby.system.home=D:\Documents\git\CECS-323\Databases\db-derby-10.13.1.1-bin\bin
-Database Class Loader started - derby.database.classpath=''
-----------------------------------------------------------------
-Mon Mar 06 18:31:35 PST 2017:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance 8cbe04f1-015a-a68e-80f9-fffff4c87ffb 
+Wed Mar 08 18:00:59 PST 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-015a-b0cc-31f0-fffff4c87ffb 
 on database directory D:\Documents\git\CECS-323\Databases\db-derby-10.13.1.1-bin\bin\SQL_Practice with class loader sun.misc.Launcher$AppClassLoader@610455d6 
 Loaded from file:/D:/Documents/git/CECS-323/Databases/db-derby-10.13.1.1-bin/lib/derby.jar
 java.vendor=Oracle Corporation
