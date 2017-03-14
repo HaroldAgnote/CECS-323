@@ -204,10 +204,27 @@ HAVING COUNT(PRODUCTVENDOR) < 5);
 -- Computations
 -- 33. What product that makes us the most money (qty*price) (1)
 
+SELECT MAX(QUANTITYINSTOCK*BUYPRICE) FROM PRODUCTS;
 
 -- 34. What is the profit per product (MSRP-buyprice) (110)
 SELECT PRODUCTNAME, MSRP-BUYPRICE AS PROFIT
 FROM PRODUCTS;
+
+-- Self Join
+-- 25. Find all of the customers who have the same sales representative as some other
+-- customer, and either customer name has ‘Australian’ in it. List each of the customers
+-- sharing a sales representative, and the name of the sales representative. Order by the
+-- name of the first customer, then the second. Do not show any combination more than
+-- once. (18)
+
+SELECT one.CUSTOMERNAME, FIRSTNAME, LASTNAME, other.CUSTOMERNAME
+FROM CUSTOMERS one
+INNER JOIN CUSTOMERS other
+ON one.SALESREPEMPLOYEENUMBER = other.SALESREPEMPLOYEENUMBER
+INNER JOIN EMPLOYEES
+ON one.SALESREPEMPLOYEENUMBER = EMPLOYEES.EMPLOYEENUMBER
+WHERE one.CUSTOMERNUMBER < other.CUSTOMERNUMBER
+AND (one.CUSTOMERNAME LIKE '%Australian%' OR other.CUSTOMERNAME LIKE '%Australian%');
 
 -- Set Operations
 -- 35. List all customers who didn't order in 2015 (78)
