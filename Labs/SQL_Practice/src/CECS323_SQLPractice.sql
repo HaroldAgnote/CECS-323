@@ -139,7 +139,7 @@ SELECT PRODUCTNAME FROM PRODUCTS
 WHERE ORDERDETAILS.PRODUCTCODE IS NULL;
 
 -- 24. List all customers and their sales rep even if they don’t have a sales rep (122)
-SELECT CUSTOMERNAME FROM CUSTOMERS
+SELECT CUSTOMERNAME, FIRSTNAME, LASTNAME FROM CUSTOMERS
   LEFT JOIN EMPLOYEES ON CUSTOMERS.SALESREPEMPLOYEENUMBER = EMPLOYEES.EMPLOYEENUMBER;
 
 -- Aggregate Functions
@@ -159,7 +159,7 @@ SELECT MAX(AMOUNT) AS MAXIMUM FROM PAYMENTS;
 
 -- 27. Find the average payment made by a customer (1)
 
-SELECT AVG(AMOUNT) FROM PAYMENTS;
+SELECT AVG(AMOUNT) AS AVERAGE FROM PAYMENTS;
 
 -- 28. What is the total number of products per product line (7)
 
@@ -208,7 +208,8 @@ SELECT MAX(QUANTITYINSTOCK*BUYPRICE) FROM PRODUCTS;
 
 -- 34. What is the profit per product (MSRP-buyprice) (110)
 SELECT PRODUCTNAME, MSRP-BUYPRICE AS PROFIT
-FROM PRODUCTS;
+FROM PRODUCTS
+GROUP BY PRODUCTNAME, MSRP, BUYPRICE;
 
 -- Self Join
 -- 25. Find all of the customers who have the same sales representative as some other
