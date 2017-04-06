@@ -228,21 +228,78 @@ WHERE one.CUSTOMERNUMBER < other.CUSTOMERNUMBER
 AND (one.CUSTOMERNAME LIKE '%Australian%' OR other.CUSTOMERNAME LIKE '%Australian%');
 
 -- Set Operations
--- 35. List all customers who didn't order in 2015 (78)
--- 36. List all people that we deal with (employees and customer contacts). Display first name,
+-- 36. List all customers who didn't order in 2015 (78)
+
+SELECT CUSTOMERNAME FROM CUSTOMERS
+WHERE NOT EXISTS
+(SELECT ORDERDATE FROM ORDERS
+WHERE YEAR(ORDERDATE) = 2015 AND ORDERS.CUSTOMERNUMBER = CUSTOMERS.CUSTOMERNUMBER);
+
+-- 37. List all people that we deal with (employees and customer contacts). Display first name,
 -- last name, company name (or employee) (145)
+
+SELECT FIRSTNAME AS "First Name", LASTNAME AS "Last Name", 'Employee' AS "COMPANY" FROM EMPLOYEES
+UNION
+SELECT CONTACTFIRSTNAME, CONTACTLASTNAME, CUSTOMERNAME FROM CUSTOMERS;
+
+-- 38. List the last name, first name, and employee number of all of the employees who do not
+-- have any customers. Order by last name first, then the first name. (8).
+
+SELECT LASTNAME, FIRSTNAME, EMPLOYEENUMBER FROM EMPLOYEES
+EXCEPT
+(SELECT LASTNAME, FIRSTNAME, EMPLOYEENUMBER
+FROM EMPLOYEES INNER JOIN CUSTOMERS ON EMPLOYEES.EMPLOYEENUMBER = CUSTOMERS.SALESREPEMPLOYEENUMBER)
+ORDER BY LASTNAME, FIRSTNAME;
+
+-- 39. List the states and the country that the state is part of that have customers but not
+-- offices, offices but not customers, or both one or more customers and one or more
+-- offices all in one query. Designate which state is which with the string 'Customer',
+-- 'Office', or 'Both'. If a state falls into the “Both” category, do not list it as a Customer or
+-- an Office state. Order by the country, then the state. Give the category column (where
+-- you list ‘Customer’, ‘Office’, or ‘Both’) a header of “Category” and exclude any entries in
+-- which the state is null. (19)
+
+SELECT STATE, COUNTRY, "CATEGORY" FROM
+(SELECT STATE, COUNTRY, 'CUSTOMER' AS "CATEGORY" FROM CUSTOMERS
+WHERE STATE IS NOT NULL
+  EXCEPT
+SELECT STATE, COUNTRY, 'CUSTOMER' AS "CATEGORY" FROM OFFICES
+WHERE STATE IS NOT NULL
+  UNION
+SELECT STATE, COUNTRY, 'OFFICE' AS "CATEGORY" FROM OFFICES
+WHERE STATE IS NOT NULL
+  EXCEPT
+SELECT STATE, COUNTRY, 'OFFICE' AS "CATEGORY" FROM CUSTOMERS
+WHERE STATE IS NOT NULL
+  UNION
+SELECT STATE, COUNTRY, 'BOTH' AS "CATEGORY" FROM CUSTOMERS
+WHERE STATE IS NOT NULL
+  INTERSECT
+SELECT STATE, COUNTRY, 'BOTH' AS "CATEGORY" FROM OFFICES
+WHERE STATE IS NOT NULL) AS STATES
+ORDER BY COUNTRY, STATE;
+
+-- 40. List the Product Code and Product name of every product that has never been in on
+-- order in which the customer asked for more than 48 of them. Order by the Product
+-- Name. (7)
+
+SELECT PRODUCTS.PRODUCTCODE, PRODUCTNAME FROM PRODUCTS
+EXCEPT
+(SELECT ORDERDETAILS.PRODUCTCODE, PRODUCTNAME FROM PRODUCTS
+  INNER JOIN ORDERDETAILS ON PRODUCTS.PRODUCTCODE = ORDERDETAILS.PRODUCTCODE
+ WHERE QUANTITYORDERED > 48)
+ORDER BY PRODUCTNAME;
 
 
 -- Subqueries
--- 37. List the products in the product line with the most number of products (38)
--- 38. Find the first name and last name of all customer contacts whose customer is located in
+-- 41. List the products in the product line with the most number of products (38)
+-- 42. Find the first name and last name of all customer contacts whose customer is located in
 -- the same state as the San Francisco office. (11)
--- 39. What is the customer and sales person of the highest priced order? (1)
-
+-- 43. What is the customer and sales person of the highest priced order? (1)
 
 -- Recursion
--- 40. What is the manager who manages the greatest number of employees (2)
--- 41. Select all employees who work for the manager that manages the greatest number of
+-- 44. What is the manager who manages the greatest number of employees (2)
+-- 45. Select all employees who work for the manager that manages the greatest number of
 -- employee (12)
--- 42. List all employees that have the same last name. Make sure each combination is listed
+-- 46. List all employees that have the same last name. Make sure each combination is listed
 -- only once (5)
