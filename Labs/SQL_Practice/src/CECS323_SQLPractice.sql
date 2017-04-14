@@ -303,3 +303,14 @@ ORDER BY PRODUCTNAME;
 -- employee (12)
 -- 46. List all employees that have the same last name. Make sure each combination is listed
 -- only once (5)
+
+
+SELECT MAX("Value")
+FROM (SELECT PRODUCTCODE, sum(PRICEEACH*QUANTITYORDERED) "Value"
+      FROM ORDERDETAILS
+      GROUP BY PRODUCTCODE) max1
+WHERE "Value" =
+      (SELECT MAX("Value")
+      FROM (SELECT PRODUCTCODE, sum(PRICEEACH*QUANTITYORDERED) "Value"
+      FROM ORDERDETAILS
+      GROUP BY ORDERDETAILS.PRODUCTCODE) maxv);
