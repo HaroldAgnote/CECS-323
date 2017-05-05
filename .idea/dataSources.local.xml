@@ -7,5 +7,30 @@
       <first-sync>true</first-sync>
       <user-name>admin</user-name>
     </data-source>
+    <data-source name="Michael's Server" uuid="baaeef3c-c7aa-4d98-a02e-ae5dcf9f8107">
+      <database-info product="MySQL" version="5.7.18-0ubuntu0.16.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.40 ( Revision: 402933ef52cad9aa82624e80acbea46e3a701ce6 )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>group</user-name>
+      <introspection-schemas>*:foo,haroldDatabase</introspection-schemas>
+    </data-source>
+    <data-source name="@localhost" uuid="75d0a2b7-42cb-42ba-8721-e19a6ded3587">
+      <database-info product="MySQL" version="5.7.14" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.40 ( Revision: 402933ef52cad9aa82624e80acbea46e3a701ce6 )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <introspection-schemas>*:club_membership,information_schema</introspection-schemas>
+    </data-source>
+    <data-source name="@localhost [2]" uuid="6508c77b-e33d-4dae-843b-deaf67d05824">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <secret-storage>master_key</secret-storage>
+      <first-sync>true</first-sync>
+    </data-source>
   </component>
 </project>

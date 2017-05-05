@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Michael&apos;s Server">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
+    <root id="1"/>
+    <schema id="2" parent="1" name="foo">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="cecs323mysql57"/>
+    <schema id="4" parent="1" name="DaveAuto"/>
+    <schema id="5" parent="1" name="information_schema"/>
+    <schema id="6" parent="1" name="mysql"/>
+    <schema id="7" parent="1" name="performance_schema"/>
+    <schema id="8" parent="1" name="sys"/>
+    <schema id="9" parent="1" name="haroldDatabase">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="10" parent="1" name="test"/>
+    <table id="11" parent="2" name="customers"/>
+    <table id="12" parent="2" name="employees"/>
+    <table id="13" parent="2" name="offices"/>
+    <table id="14" parent="2" name="orderdetails"/>
+    <table id="15" parent="2" name="orders"/>
+    <table id="16" parent="2" name="payments"/>
+    <table id="17" parent="2" name="productlines"/>
+    <table id="18" parent="2" name="products"/>
+    <routine id="19" parent="2" name="GetAllProducts">
+      <RoutineKind>procedure</RoutineKind>
+    </routine>
+    <routine id="20" parent="2" name="CustomerLevel">
+      <RoutineKind>function</RoutineKind>
+    </routine>
+    <table id="21" parent="9" name="customers"/>
+    <table id="22" parent="9" name="employees"/>
+    <table id="23" parent="9" name="offices"/>
+    <table id="24" parent="9" name="orderdetails"/>
+    <table id="25" parent="9" name="orders"/>
+    <table id="26" parent="9" name="payments"/>
+    <table id="27" parent="9" name="productlines"/>
+    <table id="28" parent="9" name="products"/>
+    <column id="29" parent="11" name="customerNumber">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="11" name="customerName">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="11" name="contactLastName">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="11" name="contactFirstName">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="11" name="phone">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="11" name="addressLine1">
+      <Position>6</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="11" name="addressLine2">
+      <Position>7</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="36" parent="11" name="city">
+      <Position>8</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="11" name="state">
+      <Position>9</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="38" parent="11" name="postalCode">
+      <Position>10</Position>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <column id="39" parent="11" name="country">
+      <Position>11</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="40" parent="11" name="salesRepEmployeeNumber">
+      <Position>12</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="41" parent="11" name="creditLimit">
+      <Position>13</Position>
+      <DataType>decimal(10,2)|0</DataType>
+    </column>
+    <index id="42" parent="11" name="customers_ibfk_1">
+      <ColNames>salesRepEmployeeNumber</ColNames>
+    </index>
+    <key id="43" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>customerNumber</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="44" parent="11" name="customers_ibfk_1">
+      <ColNames>salesRepEmployeeNumber</ColNames>
+      <RefSchemaName>foo</RefSchemaName>
+      <RefTableName>employees</RefTableName>
+      <RefColNames>employeeNumber</RefColNames>
+    </foreign-key>
+    <column id="45" parent="12" name="employeeNumber">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="12" name="lastName">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="47" parent="12" name="firstName">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="48" parent="12" name="extension">
+      <Position>4</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="49" parent="12" name="email">
+      <Position>5</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="50" parent="12" name="officeCode">
+      <Position>6</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="12" name="reportsTo">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="52" parent="12" name="jobTitle">
+      <Position>8</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="53" parent="12" name="employees_ibfk_1">
+      <ColNames>reportsTo</ColNames>
+    </index>
+    <index id="54" parent="12" name="employees_ibfk_2">
+      <ColNames>officeCode</ColNames>
+    </index>
+    <key id="55" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>employeeNumber</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="56" parent="12" name="employees_ibfk_2">
+      <ColNames>officeCode</ColNames>
+      <RefSchemaName>foo</RefSchemaName>
+      <RefTableName>offices</RefTableName>
+      <RefColNames>officeCode</RefColNames>
+    </foreign-key>
+    <foreign-key id="57" parent="12" name="employees_ibfk_1">
+      <ColNames>reportsTo</ColNames>
+      <RefSchemaName>foo</RefSchemaName>
+      <RefTableName>employees</RefTableName>
+      <RefColNames>employeeNumber</RefColNames>
+    </foreign-key>
+    <column id="58" parent="13" name="officeCode">
+      <Position>1</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="59" parent="13" name="city">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="60" parent="13" name="phone">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="61" parent="13" name="addressLine1">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="62" parent="13" name="addressLine2">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="63" parent="13" name="state">
+      <Position>6</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="64" parent="13" name="country">
+      <Position>7</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="65" parent="13" name="postalCode">
+      <Position>8</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="66" parent="13" name="territory">
+      <Position>9</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="67" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>officeCode</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="68" parent="14" name="orderNumber">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="69" parent="14" name="productCode">
+      <Position>2</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="70" parent="14" name="quantityOrdered">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="71" parent="14" name="priceEach">
+      <Position>4</Position>
+      <DataType>decimal(10,2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="72" parent="14" name="orderLineNumber">
+      <Position>5</Position>
+      <DataType>smallint(6)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="73" parent="14" name="orderdetails_ibfk_2">
+      <ColNames>productCode</ColNames>
+    </index>
+    <key id="74" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>orderNumber
+productCode</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="75" parent="14" name="orderdetails_ibfk_2">
+      <ColNames>productCode</ColNames>
+      <RefSchemaName>foo</RefSchemaName>
+      <RefTableName>products</RefTableName>
+      <RefColNames>productCode</RefColNames>
+    </foreign-key>
+    <column id="76" parent="15" name="orderNumber">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="77" parent="15" name="orderDate">
+      <Position>2</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="78" parent="15" name="requiredDate">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="79" parent="15" name="shippedDate">
+      <Position>4</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="80" parent="15" name="status">
+      <Position>5</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="81" parent="15" name="comments">
+      <Position>6</Position>
+      <DataType>varchar(400)|0</DataType>
+    </column>
+    <column id="82" parent="15" name="customerNumber">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="83" parent="15" name="orders_ibfk_1">
+      <ColNames>customerNumber</ColNames>
+    </index>
+    <key id="84" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>orderNumber</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="85" parent="15" name="orders_ibfk_1">
+      <ColNames>customerNumber</ColNames>
+      <RefSchemaName>foo</RefSchemaName>
+      <RefTableName>customers</RefTableName>
+      <RefColNames>customerNumber</RefColNames>
+    </foreign-key>
+    <column id="86" parent="16" name="customerNumber">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="87" parent="16" name="checkNumber">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="88" parent="16" name="paymentDate">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="89" parent="16" name="amount">
+      <Position>4</Position>
+      <DataType>decimal(10,2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="90" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>customerNumber
+checkNumber</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="91" parent="16" name="payments_ibfk_1">
+      <ColNames>customerNumber</ColNames>
+      <RefSchemaName>foo</RefSchemaName>
+      <RefTableName>customers</RefTableName>
+      <RefColNames>customerNumber</RefColNames>
+    </foreign-key>
+    <column id="92" parent="17" name="productLine">
+      <Position>1</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="93" parent="17" name="textDescription">
+      <Position>2</Position>
+      <DataType>varchar(4000)|0</DataType>
+    </column>
+    <column id="94" parent="17" name="htmlDescription">
+      <Position>3</Position>
+      <DataType>varchar(4000)|0</DataType>
+    </column>
+    <column id="95" parent="17" name="image">
+      <Position>4</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <key id="96" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>productLine</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="97" parent="18" name="productCode">
+      <Position>1</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="98" parent="18" name="productName">
+      <Position>2</Position>
+      <DataType>varchar(70)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="99" parent="18" name="productLine">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="100" parent="18" name="productScale">
+      <Position>4</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="101" parent="18" name="productVendor">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="102" parent="18" name="productDescription">
+      <Position>6</Position>
+      <DataType>varchar(800)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="103" parent="18" name="quantityInStock">
+      <Position>7</Position>
+      <DataType>smallint(6)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="104" parent="18" name="buyPrice">
+      <Position>8</Position>
+      <DataType>decimal(10,2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="105" parent="18" name="MSRP">
+      <Position>9</Position>
+      <DataType>decimal(10,2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="106" parent="18" name="products_ibfk_1">
+      <ColNames>productLine</ColNames>
+    </index>
+    <key id="107" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>productCode</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="108" parent="18" name="products_ibfk_1">
+      <ColNames>productLine</ColNames>
+      <RefSchemaName>foo</RefSchemaName>
+      <RefTableName>productlines</RefTableName>
+      <RefColNames>productLine</RefColNames>
+    </foreign-key>
+    <argument id="109" parent="20">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>varchar(10)|0</DataType>
+    </argument>
+    <argument id="110" parent="20" name="p_creditLimit">
+      <DataType>double|0</DataType>
+    </argument>
+    <column id="111" parent="21" name="customerNumber">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="112" parent="21" name="customerName">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="113" parent="21" name="contactLastName">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="114" parent="21" name="contactFirstName">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="115" parent="21" name="phone">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="116" parent="21" name="addressLine1">
+      <Position>6</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="117" parent="21" name="addressLine2">
+      <Position>7</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="118" parent="21" name="city">
+      <Position>8</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="119" parent="21" name="state">
+      <Position>9</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="120" parent="21" name="postalCode">
+      <Position>10</Position>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <column id="121" parent="21" name="country">
+      <Position>11</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="122" parent="21" name="salesRepEmployeeNumber">
+      <Position>12</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="123" parent="21" name="creditLimit">
+      <Position>13</Position>
+      <DataType>decimal(10,2)|0</DataType>
+    </column>
+    <index id="124" parent="21" name="salesRepEmployeeNumber">
+      <ColNames>salesRepEmployeeNumber</ColNames>
+    </index>
+    <key id="125" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>customerNumber</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="126" parent="21" name="customers_ibfk_1">
+      <ColNames>salesRepEmployeeNumber</ColNames>
+      <RefSchemaName>haroldDatabase</RefSchemaName>
+      <RefTableName>employees</RefTableName>
+      <RefColNames>employeeNumber</RefColNames>
+    </foreign-key>
+    <column id="127" parent="22" name="employeeNumber">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="128" parent="22" name="lastName">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="129" parent="22" name="firstName">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="130" parent="22" name="extension">
+      <Position>4</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="131" parent="22" name="email">
+      <Position>5</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="132" parent="22" name="officeCode">
+      <Position>6</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="133" parent="22" name="reportsTo">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="134" parent="22" name="jobTitle">
+      <Position>8</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="135" parent="22" name="officeCode">
+      <ColNames>officeCode</ColNames>
+    </index>
+    <index id="136" parent="22" name="reportsTo">
+      <ColNames>reportsTo</ColNames>
+    </index>
+    <key id="137" parent="22" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>employeeNumber</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="138" parent="22" name="employees_ibfk_2">
+      <ColNames>officeCode</ColNames>
+      <RefSchemaName>haroldDatabase</RefSchemaName>
+      <RefTableName>offices</RefTableName>
+      <RefColNames>officeCode</RefColNames>
+    </foreign-key>
+    <foreign-key id="139" parent="22" name="employees_ibfk_1">
+      <ColNames>reportsTo</ColNames>
+      <RefSchemaName>haroldDatabase</RefSchemaName>
+      <RefTableName>employees</RefTableName>
+      <RefColNames>employeeNumber</RefColNames>
+    </foreign-key>
+    <column id="140" parent="23" name="officeCode">
+      <Position>1</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="141" parent="23" name="city">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="142" parent="23" name="phone">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="143" parent="23" name="addressLine1">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="144" parent="23" name="addressLine2">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="145" parent="23" name="state">
+      <Position>6</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="146" parent="23" name="country">
+      <Position>7</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="147" parent="23" name="postalCode">
+      <Position>8</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="148" parent="23" name="territory">
+      <Position>9</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="149" parent="23" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>officeCode</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="150" parent="24" name="orderNumber">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="151" parent="24" name="productCode">
+      <Position>2</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="152" parent="24" name="quantityOrdered">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="153" parent="24" name="priceEach">
+      <Position>4</Position>
+      <DataType>decimal(10,2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="154" parent="24" name="orderLineNumber">
+      <Position>5</Position>
+      <DataType>smallint(6)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="155" parent="24" name="productCode">
+      <ColNames>productCode</ColNames>
+    </index>
+    <key id="156" parent="24" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>orderNumber
+productCode</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="157" parent="24" name="orderdetails_ibfk_1">
+      <ColNames>orderNumber</ColNames>
+      <RefSchemaName>haroldDatabase</RefSchemaName>
+      <RefTableName>orders</RefTableName>
+      <RefColNames>orderNumber</RefColNames>
+    </foreign-key>
+    <foreign-key id="158" parent="24" name="orderdetails_ibfk_2">
+      <ColNames>productCode</ColNames>
+      <RefSchemaName>haroldDatabase</RefSchemaName>
+      <RefTableName>products</RefTableName>
+      <RefColNames>productCode</RefColNames>
+    </foreign-key>
+    <column id="159" parent="25" name="orderNumber">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="160" parent="25" name="orderDate">
+      <Position>2</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="161" parent="25" name="requiredDate">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="162" parent="25" name="shippedDate">
+      <Position>4</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="163" parent="25" name="status">
+      <Position>5</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="164" parent="25" name="comments">
+      <Position>6</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="165" parent="25" name="customerNumber">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="166" parent="25" name="customerNumber">
+      <ColNames>customerNumber</ColNames>
+    </index>
+    <key id="167" parent="25" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>orderNumber</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="168" parent="25" name="orders_ibfk_1">
+      <ColNames>customerNumber</ColNames>
+      <RefSchemaName>haroldDatabase</RefSchemaName>
+      <RefTableName>customers</RefTableName>
+      <RefColNames>customerNumber</RefColNames>
+    </foreign-key>
+    <column id="169" parent="26" name="customerNumber">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="170" parent="26" name="checkNumber">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="171" parent="26" name="paymentDate">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="172" parent="26" name="amount">
+      <Position>4</Position>
+      <DataType>decimal(10,2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="173" parent="26" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>customerNumber
+checkNumber</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="174" parent="26" name="payments_ibfk_1">
+      <ColNames>customerNumber</ColNames>
+      <RefSchemaName>haroldDatabase</RefSchemaName>
+      <RefTableName>customers</RefTableName>
+      <RefColNames>customerNumber</RefColNames>
+    </foreign-key>
+    <column id="175" parent="27" name="productLine">
+      <Position>1</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="176" parent="27" name="textDescription">
+      <Position>2</Position>
+      <DataType>varchar(4000)|0</DataType>
+    </column>
+    <column id="177" parent="27" name="htmlDescription">
+      <Position>3</Position>
+      <DataType>mediumtext|0</DataType>
+    </column>
+    <column id="178" parent="27" name="image">
+      <Position>4</Position>
+      <DataType>mediumblob|0</DataType>
+    </column>
+    <key id="179" parent="27" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>productLine</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="180" parent="28" name="productCode">
+      <Position>1</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="181" parent="28" name="productName">
+      <Position>2</Position>
+      <DataType>varchar(70)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="182" parent="28" name="productLine">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="183" parent="28" name="productScale">
+      <Position>4</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="184" parent="28" name="productVendor">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="185" parent="28" name="productDescription">
+      <Position>6</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="186" parent="28" name="quantityInStock">
+      <Position>7</Position>
+      <DataType>smallint(6)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="187" parent="28" name="buyPrice">
+      <Position>8</Position>
+      <DataType>decimal(10,2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="188" parent="28" name="MSRP">
+      <Position>9</Position>
+      <DataType>decimal(10,2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="189" parent="28" name="productLine">
+      <ColNames>productLine</ColNames>
+    </index>
+    <key id="190" parent="28" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>productCode</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="191" parent="28" name="products_ibfk_1">
+      <ColNames>productLine</ColNames>
+      <RefSchemaName>haroldDatabase</RefSchemaName>
+      <RefTableName>productlines</RefTableName>
+      <RefColNames>productLine</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
