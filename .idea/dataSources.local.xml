@@ -25,7 +25,7 @@
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
-      <introspection-schemas>*:club_membership,information_schema</introspection-schemas>
+      <introspection-schemas>*:club_membership,information_schema,transactions</introspection-schemas>
     </data-source>
     <data-source name="@localhost [2]" uuid="6508c77b-e33d-4dae-843b-deaf67d05824">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
